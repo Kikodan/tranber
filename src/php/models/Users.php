@@ -43,5 +43,16 @@ class Users extends Model
 		return $database->query($sql, $data, false);
 	}
 
+	public function getUserByLoginOrEmail(string $login)
+	{
+		$sql = "SELECT * FROM users 
+				WHERE login=:login OR email=:login";
+		$data = [
+			':login'    => $login,
+		];
+		$database = $this->getApp()->getDatabase();
+		return $database->query($sql, $data)[0] ?? null;
+	}
+
 
 }
