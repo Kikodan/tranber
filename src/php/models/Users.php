@@ -37,7 +37,7 @@ class Users extends Model
 		$data = [
 			':login'    => $login,
 			':email'    => $email,
-			':password' => $password,
+			':password' => \password_hash($password, \PASSWORD_DEFAULT),
 		];
 		$database = $this->getApp()->getDatabase();
 		return $database->query($sql, $data, false);
