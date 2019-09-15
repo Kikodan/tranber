@@ -15,7 +15,7 @@ $data = [
 		'sign-up' => 'tranber\controllers\SignUp',
 	],
 	'database' => [
-		'name' => 'tranberrrr',
+		'name' => 'tranber',
 		'user' => 'root',
 		'pass' => '',
 		'host' => 'localhost',
