@@ -4,6 +4,7 @@ namespace tranber\controllers;
 
 use tranber\structures\Controller;
 use tranber\views\SignUp as SignUpView;
+use tranber\functions as fn;
 
 class SignUp extends Controller implements SignUpInterface
 {
@@ -41,6 +42,10 @@ class SignUp extends Controller implements SignUpInterface
 					$data    = $conf->getData();
 					$siteUrl = $data['site-url'];
 					header('Location: '.$siteUrl);
+				}
+
+				foreach ($errors as $error) {
+					echo fn\htmlError($error);
 				}
 
 			}
