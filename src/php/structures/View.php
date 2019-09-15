@@ -2,6 +2,7 @@
 
 namespace tranber\structures;
 
+use tranber\services\Client;
 use tranber\services\Conf;
 use tranber\functions as fn;
 
@@ -26,9 +27,11 @@ abstract class View implements ViewInterface
 	public function stringify() 
 	{
 		$confData    = Conf::getInstance()->getData();
+		$client      = Client::getInstance();
 		$defaultVars = [
-			'title'   => $confData['title']    ?? 'Tranber',
-			'siteUrl' => $confData['site-url'] ?? '',
+			'title'          => $confData['title']    ?? 'Tranber',
+			'siteUrl'        => $confData['site-url'] ?? '',
+			'clientIsLogged' => $client->isLogged(),
 		];
 
 		foreach ($this->getTemplates() as $name => $vars)
